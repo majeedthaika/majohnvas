@@ -1,6 +1,9 @@
 <template>
   <div id="app">
     <!-- <img src="./assets/logo.png"> -->
+    <div v-if="$store.getters.loggedIn">
+      Welcome
+    </div>
     <router-view></router-view>
   </div>
 </template>

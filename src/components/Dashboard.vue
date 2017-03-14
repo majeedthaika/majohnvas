@@ -1,5 +1,9 @@
 <template>
   <el-row :gutter="20" class="tac">
+  <!-- <el-row :gutter="20" class="tac" >
+      {{ post.id }} {{ post.name }}
+  </el-row> -->
+
   <el-col :span="7" :offset="0">
     <el-menu default-active="2" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose">
       <br><h1>Member</h1>
@@ -20,14 +24,38 @@
 </el-row>
 </template>
 <script>
-  export default {
-    methods: {
-      handleOpen (key, keyPath) {
-        // console.log(key, keyPath);
-      },
-      handleClose (key, keyPath) {
-        // console.log(key, keyPath);
-      }
+import PostsApi from '../api/posts.js'
+
+export default {
+  methods: {
+    handleOpen (key, keyPath) {
+      // console.log(key, keyPath);
+    },
+    handleClose (key, keyPath) {
+      // console.log(key, keyPath);
+    }
+  },
+  name: 'posts',
+  data () {
+    return {
+      posts: null,
+      error: null
+    }
+  },
+  beforeRouteEnter (to, from, _next) {
+    PostsApi.getPosts(_posts => {
+      _next(vm => {
+        vm.posts = _posts
+      })
+    })
+  },
+  watch: {
+    $route () {
+      PostsApi.getPosts(_posts => {
+        this.posts = _posts
+      })
     }
   }
+}
+
 </script>

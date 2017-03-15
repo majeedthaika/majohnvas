@@ -31,15 +31,16 @@ export default {
     return {
       username: '',
       password: ''
-
     }
   },
   methods: {
     login () {
       console.log('methods.login')
       UsersApi.login(this.username, this.password, function (_response) {
+        console.log('lol')
         // NOTE: Posts.index is not yet implemented
         router.push({ name: 'Dashboard' })
+        console.log('push dashboard')
       })
     }
   }

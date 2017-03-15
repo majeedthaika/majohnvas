@@ -1,18 +1,20 @@
 import Vue from 'vue'
 import store from '../store'
+import formurlencoded from 'form-urlencoded'
 
 export default {
   login (username, password, callback) {
     console.log(store)
+
     var loginParams = {
       username: username,
       password: password
     }
-    Vue.$http.post('/login', loginParams)
-    console.log('post method')
+    Vue.$http.post('/login', formurlencoded(loginParams))
     .then(function (response) {
-      console.log('ggggggggg')
-      store.dispatch('/Dashboard')
+      console.log(response)
+
+      store.dispatch('/dashboard')
       callback(response.data)
     })
     .catch(function (response) {
@@ -31,7 +33,7 @@ export default {
     })
   },
   checkLoggedIn () {
-    Vue.$http.get('/')
+    Vue.$http.get('/checkLoggedIn')
     .then(function (response) {
       store.dispatch('login')
     })

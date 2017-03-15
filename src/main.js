@@ -15,7 +15,7 @@ Vue.config.productionTip = false
 
 // URL
 Axios.defaults.baseURL = 'http://localhost:8080/'
-Axios.defaults.headers.common.Accept = 'application/json'
+// Axios.defaults.headers.common.Accept = 'application/x-www-form-urlencoded'
 Axios.defaults.withCredentials = true
 import UsersApi from './api/users'
 UsersApi.checkLoggedIn()

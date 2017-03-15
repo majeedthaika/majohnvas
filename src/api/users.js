@@ -5,11 +5,8 @@ export default {
   login (username, password, callback) {
     console.log(store)
     var loginParams = {
-      user: {
-
-        email: username,
-        password: password
-      }
+      username: username,
+      password: password
     }
     Vue.$http.post('/login', loginParams)
     console.log('post method')

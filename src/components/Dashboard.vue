@@ -129,12 +129,6 @@
 
 </el-row>
   </el-col>
-  <el-col :span="2" :offset="2">
-    <br>
-    <br><h3 id="noti">Notification</h3>
-
-
-</el-col>
 </el-row>
 </template>
 <script>

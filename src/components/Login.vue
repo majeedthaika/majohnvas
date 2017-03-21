@@ -4,12 +4,9 @@
   <el-col :span="8" :offset="8"><div class="grid-content bg-purple-light" id="login">
 
     <br><br><br><br><br>
-    <h1 id="member">Member</h1>
-    <br><br><br><br><br>
-      <span> Username</span>
+    <h1 id="member">Login</h1>
       <el-input placeholder="Username" v-model="username"></el-input>
       <br><br>
-      <span>password</span>
       <el-input placeholder="Password" type="password" v-model="password"></el-input>
       <br><br>
 

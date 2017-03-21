@@ -1,23 +1,25 @@
+
 <template>
-  <el-row :gutter="20" class='login'>
-  <!-- <el-col :span="8"><div class="grid-content bg-purple">_</div></el-col> -->
-  <el-col :span="8" :offset="8"><div class="grid-content bg-purple-light" id="login">
+  <md-layout md-align="center" md-gutter="16">
+    <md-layout md-flex="35" md-align="center"  style="margin-top:120px;">
+        <h1 id="login">Login</h1>
 
-    <br><br><br><br><br>
-    <h1 id="member">Login</h1>
-      <el-input placeholder="Username" v-model="username"></el-input>
-      <br><br>
-      <el-input placeholder="Password" type="password" v-model="password"></el-input>
-      <br><br>
+        <md-input-container v-model="username">
+          <label>Username</label>
+          <md-textarea></md-textarea>
+        </md-input-container>
 
-      <el-button type="primary" size="large" id="loginbut" @click.native="login" >Login</el-button>
-      <br><br>
+        <md-input-container md-has-password v-model="password">
+          <label>Password</label>
+          <md-input type="password"></md-input>
+        </md-input-container>
 
-      <el-button type="text" id="registerbut" >Register</el-button></li>
-      <br><br>
-  </div></el-col>
-</el-row>
+        <md-button class="md-raised md-primary" @click.native="login">Sign in</md-button>
+    </md-layout>
+
+  </md-layout>
 </template>
+
 <script>
 import UsersApi from '../api/users.js'
 import router from '../router'
@@ -45,12 +47,12 @@ export default {
 </script>
 
 <style>
-#member{
+#login{
   font-size: 50px;
 }
-#login{
+/*#login{
   padding: auto;
-}
+}*/
 #loginbut{
   width: 100%
 }

@@ -14,17 +14,13 @@
 
         <md-card-actions>
           <md-dialog md-open-from="#fab" md-close-to="#fab" ref="dialog2">
-            <md-dialog-title>Edit post</md-dialog-title>
+            <md-dialog-title>Edit comment</md-dialog-title>
 
             <md-dialog-content>
               <form>
                 <md-input-container>
-                  <label>Post title</label>
-                  <md-textarea maxlength="30"></md-textarea>
-                </md-input-container>
-                <md-input-container>
-                  <label>Post content</label>
-                  <md-textarea></md-textarea>
+                  <label>Comment</label>
+                  <md-textarea maxlength="100"></md-textarea>
                 </md-input-container>
               </form>
             </md-dialog-content>
@@ -36,7 +32,7 @@
           </md-dialog>
 
           <router-link to="/comment">
-            <md-button class="md-accent">View comment</md-button>
+            <md-button class="md-accent">Back</md-button>
           </router-link>
           <md-button class="md-accent md-raised" id="fab" @click.native="openDialog('dialog2')">Edit</md-button>
         </md-card-actions>

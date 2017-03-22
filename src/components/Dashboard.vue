@@ -2,7 +2,7 @@
   <div class="posts">
 
     <md-layout md-gutter md-align="center" style="margin-top:20px;">
-      <md-list class="custom-list md-triple-line" v-for="post in 6">
+      <md-list class="custom-list md-triple-line" v-for="course in 5">
               <!-- Course :{{post.name}}  Status :{{post.active}} -->
         <router-link tag="li" to="/post">
           <md-layout md-flex-xsmall="100" md-flex-small="50" md-flex-medium="33">

@@ -35,6 +35,7 @@
             </md-dialog-actions>
           </md-dialog>
 
+          <md-button class="md-accent" @click.native="viewComment">View comment</md-button>
           <md-button class="md-accent md-raised" id="fab" @click.native="openDialog('dialog2')">Edit</md-button>
         </md-card-actions>
       </md-card>
@@ -56,6 +57,9 @@ export default {
     },
     onClose (type) {
       console.log('Closed', type)
+    },
+    viewComment () {
+      console.log('view comment')
     }
   }
 }

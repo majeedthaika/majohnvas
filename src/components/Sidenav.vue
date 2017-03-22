@@ -6,7 +6,7 @@
     </md-button>
     <h2 class="md-title">Dashboard</h2>
   </md-toolbar>
-  
+
   <md-sidenav class="md-left" ref="leftSidenav" @open="open('Left')" @close="close('Left')">
     <md-toolbar class="md-large">
       <div class="md-toolbar-container">
@@ -16,15 +16,19 @@
     <div class="phone-viewport">
       <md-list>
         <md-list-item>
-          <md-button id='but'>
-            <md-icon>dashboard</md-icon> Course
-          </md-button>
+          <router-link tag="li" to="/dashboard">
+            <md-button id='but'>
+              <md-icon>dashboard</md-icon> Course
+            </md-button>
+          </router-link>
         </md-list-item>
-        <md-list-item>
-          <md-button id='but'>
-          <md-icon>receipt</md-icon> <span>Post</span>
-        </md-button>
-        </md-list-item>
+        <!-- <md-list-item>
+          <router-link tag="li" to="/dashboard">
+            <md-button id='but'>
+              <md-icon>receipt</md-icon> <span>Post</span>
+            </md-button>
+          </router-link>
+        </md-list-item> -->
         <md-list-item>
           <md-button @click.native="logout">
             <md-icon>face</md-icon> <span>Logout</span>

@@ -22,14 +22,14 @@
 
 <script>
 import UsersApi from '../api/users.js'
-import router from '../router'
+// import router from '../router'
 
 export default {
   name: 'login',
   data () {
     return {
-      username: '',
-      password: ''
+      username: 'admin',
+      password: 'password'
     }
   },
   methods: {
@@ -38,8 +38,8 @@ export default {
       UsersApi.login(this.username, this.password, function (_response) {
         console.log('lol')
         // NOTE: Posts.index is not yet implemented
-        router.push({ name: 'Dashboard' })
-        console.log('push dashboard')
+        // router.push({ name: 'Dashboard' })
+        // console.log('push dashboard')
       })
     }
   }

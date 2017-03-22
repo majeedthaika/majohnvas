@@ -2,14 +2,14 @@
   <div class="posts">
 
     <md-layout md-gutter md-align="center" style="margin-top:20px;">
-      <md-list class="custom-list md-triple-line" v-for="course in 5">
-              <!-- Course :{{post.name}}  Status :{{post.active}} -->
-        <router-link tag="li" to="/post">
+      <md-list class="custom-list md-triple-line" v-for="post in 7">
+              <!-- Course :{{course.name}}  Status :{{course.active}} -->
+        <router-link tag="li" to="/show">
           <md-layout md-flex-xsmall="100" md-flex-small="50" md-flex-medium="33">
             <md-card md-with-hover style="width:325px;">
               <md-card-header>
-                <div class="md-title">Course title</div>
-                <div class="md-subhead">Course owner</div>
+                <div class="md-title">Post title</div>
+                <div class="md-subhead">Post owner</div>
               </md-card-header>
 
               <md-card-content>

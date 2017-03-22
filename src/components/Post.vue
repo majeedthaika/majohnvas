@@ -1,7 +1,12 @@
 <template>
   <div class="posts">
 
+    <md-button class="md-fab md-warn" style="margin-top:20px;">
+      <md-icon>add</md-icon>
+    </md-button>
+
     <md-layout md-gutter md-align="center" style="margin-top:20px;">
+
       <md-list class="custom-list md-triple-line" v-for="post in 7">
               <!-- Course :{{course.name}}  Status :{{course.active}} -->
         <router-link tag="li" to="/show">

@@ -1,25 +1,34 @@
 import Vue from 'vue'
 import store from '../store'
-import formurlencoded from 'form-urlencoded'
+// import formurlencoded from 'form-urlencoded'
 
 export default {
   login (username, password, callback) {
     console.log(store)
 
-    var loginParams = {
-      username: username,
-      password: password
-    }
-    Vue.$http.post('/login', formurlencoded(loginParams))
-    .then(function (response) {
-      console.log(response)
+    // var loginParams = {
+    //   username: username,
+    //   password: password
+    // }
 
-      store.dispatch('/dashboard')
-      callback(response.data)
-    })
-    .catch(function (response) {
+    console.log(username)
+    if (username === 'admin' && password === 'password') {
+      console.log('correct')
+      store.dispatch('login')
+    } else {
+      console.log('wrong')
       store.dispatch('logout')
-    })
+    }
+    // Vue.$http.post('/login', formurlencoded(loginParams))
+    // .then(function (response) {
+    //   console.log(response)
+    //
+    //   store.dispatch('/dashboard')
+    //   callback(response.data)
+    // })
+    // .catch(function (response) {
+    //   store.dispatch('logout')
+    // })
   },
   logout (callback) {
     console.log(store)

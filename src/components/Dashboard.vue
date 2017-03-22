@@ -1,31 +1,57 @@
 <template>
-  <el-row :gutter="20" class="tac">
-  <el-col :span="4" :offset="0">
-    <el-menu default-active="2" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose">
-      <br><h1>Member</h1>
-      <el-progress type="circle" :percentage="100" >picture</el-progress>
-      <br>Profile<br><br>
-      <el-input placeholder="Search Course" id="search-box" icon="search" v-model="input2" :on-icon-click="handleIconClick">
-</el-input>
-      <br><br>
-       <el-submenu index="1">
-        <template slot="title"><i class="el-icon-menu"></i>Account</template>
-        <el-menu-item-group >
-          <el-menu-item index="1-1">Manage</el-menu-item>
-          <el-menu-item index="1-2">Logout</el-menu-item>
-        </el-menu-item-group>
-      </el-submenu>
-      <el-menu-item index="3"><i class="el-icon-setting"></i>File</el-menu-item>
-      <el-menu-item index="3"><i class="el-icon-setting"></i>Grade</el-menu-item>
-      <el-menu-item index="3"><i class="el-icon-setting"></i>Setting</el-menu-item>
-    </el-menu>
-  </el-col>
-</el-row>
+  <div class="posts">
+
+    <md-layout md-gutter md-align="center" style="margin-top:20px;">
+      <md-list class="custom-list md-triple-line" v-for="course in 6">
+              <!-- Course :{{course.name}}  Status :{{course.active}} -->
+        <router-link tag="li" to="/show">
+          <md-layout md-flex-xsmall="100" md-flex-small="50" md-flex-medium="33">
+            <md-card md-with-hover style="width:325px;">
+              <md-card-header>
+                <div class="md-title">Title of post</div>
+                <!-- <div class="md-subhead">Subtitle here</div> -->
+              </md-card-header>
+
+              <md-card-content>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+              </md-card-content>
+            </md-card>
+          </md-layout>
+        </router-link>
+      </md-list>
+    </md-layout>
+  </div>
 </template>
 
 <script>
 export default {
+  data () {
+    return {
+      prompt: {
+        title: 'Edit post',
+        ok: 'Done',
+        cancel: 'Cancel',
+        id: 'name',
+        name: 'name',
+        placeholder: 'Your post',
+        maxlength: 30,
+        value: ''
+      }
+    }
+  },
   methods: {
+    openDialog (ref) {
+      this.$refs[ref].open()
+    },
+    closeDialog (ref) {
+      this.$refs[ref].close()
+    },
+    onOpen () {
+      console.log('Opened')
+    },
+    onClose (type) {
+      console.log('Closed', type)
+    }
   }
 }
 

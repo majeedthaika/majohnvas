@@ -15,8 +15,8 @@ Vue.$http = Axios
 Vue.config.productionTip = false
 
 // URL
-Axios.defaults.baseURL = 'http://localhost:8000/'
-// Axios.defaults.headers.common.Accept = 'application/x-www-form-urlencoded'
+Axios.defaults.baseURL = 'http://localhost:3000/'
+Axios.defaults.headers.common.Accept = 'application/json'
 Axios.defaults.withCredentials = true
 Vue.config.productionTip = false
 import UsersApi from '@/api/users'

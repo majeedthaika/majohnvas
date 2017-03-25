@@ -6,29 +6,23 @@ export default {
   login (username, password, callback) {
     console.log(store)
 
-    // var loginParams = {
-    //   username: username,
-    //   password: password
-    // }
+    var loginParams = {
+      student: {
+        email: username,
+        password: password
+      }
+    }
 
     console.log(username)
-    if (username === 'admin' && password === 'password') {
-      console.log('correct')
-      store.dispatch('login')
-    } else {
-      console.log('wrong')
-      store.dispatch('logout')
-    }
-    // Vue.$http.post('/login', formurlencoded(loginParams))
-    // .then(function (response) {
-    //   console.log(response)
-    //
-    //   store.dispatch('/dashboard')
-    //   callback(response.data)
-    // })
-    // .catch(function (response) {
-    //   store.dispatch('logout')
-    // })
+    Vue.$http.post('/students/api_sign_in.json', loginParams)
+    .then(function (response) {
+      console.log(response)
+      // store.dispatch('/dashboard')
+      callback(response.data)
+    })
+    .catch(function (response) {
+      // store.dispatch('logout')
+    })
   },
   logout (callback) {
     console.log(store)
@@ -42,7 +36,7 @@ export default {
     })
   },
   checkLoggedIn () {
-    Vue.$http.get('/checkLoggedIn')
+    Vue.$http.get('/students/check_signed_in')
     .then(function (response) {
       store.dispatch('login')
     })

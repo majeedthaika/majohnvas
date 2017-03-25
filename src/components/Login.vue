@@ -4,14 +4,14 @@
     <md-layout md-flex="35" md-align="center"  style="margin-top:120px;">
         <h1 id="login">Login</h1>
 
-        <md-input-container v-model="username">
+        <md-input-container>
           <label>Username</label>
-          <md-textarea></md-textarea>
+          <md-textarea v-model="username"></md-textarea>
         </md-input-container>
 
-        <md-input-container md-has-password v-model="password">
+        <md-input-container md-has-password>
           <label>Password</label>
-          <md-input type="password"></md-input>
+          <md-input type="password" v-model="password"></md-input>
         </md-input-container>
 
         <md-button class="md-raised md-primary" @click.native="login">Sign in</md-button>
@@ -22,14 +22,14 @@
 
 <script>
 import UsersApi from '../api/users.js'
-// import router from '../router'
+import router from '../router'
 
 export default {
   name: 'login',
   data () {
     return {
-      username: 'admin',
-      password: 'password'
+      username: '',
+      password: ''
     }
   },
   methods: {
@@ -37,6 +37,7 @@ export default {
       console.log('methods.login')
       UsersApi.login(this.username, this.password, function (_response) {
         console.log('lol')
+        router.push({name: 'Dashboard'})
         // NOTE: Posts.index is not yet implemented
         // router.push({ name: 'Dashboard' })
         // console.log('push dashboard')

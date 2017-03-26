@@ -1,8 +1,8 @@
-<!--
+
 <template>
   <md-layout md-align="center" md-gutter="16">
     <md-layout md-flex="35" md-align="center"  style="margin-top:120px;">
-        <h1 id="login">Login</h1>
+        <h1 id="login">Student login</h1>
 
         <md-input-container>
           <label>Username</label>
@@ -16,14 +16,13 @@
 
         <md-button class="md-raised md-primary" @click.native="login">Sign in</md-button>
     </md-layout>
-
   </md-layout>
 </template>
 
 <script>
-import UsersApi from '../api/users.js'
-import router from '../router'
-import State from '../store.js'
+import StudentUsersApi from '@/api/student/users.js'
+import router from '@/router'
+import State from '@/store.js'
 export default {
   name: 'login',
   data () {
@@ -35,9 +34,9 @@ export default {
   methods: {
     login () {
       console.log('methods.login')
-      UsersApi.login(this.username, this.password, function (_response) {
-        console.log('lol')
-        router.push({name: 'Dashboard'})
+      StudentUsersApi.login(this.username, this.password, function (_response) {
+        // console.log('lol')
+        router.push({name: 'StudentDashboard'})
         // NOTE: Posts.index is not yet implemented
         // router.push({ name: 'Dashboard' })
         // console.log('push dashboard')
@@ -49,9 +48,9 @@ export default {
 </script>
 
 <style>
-#login{
+/*#login{
   font-size: 50px;
-}
+}*/
 /*#login{
   padding: auto;
 }*/
@@ -59,4 +58,4 @@ export default {
   width: 100%
 }
 
-</style> -->
+</style>

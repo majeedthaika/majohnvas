@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import store from '../store'
+import store from '@/store'
 // import formurlencoded from 'form-urlencoded'
 
 export default {
@@ -7,14 +7,14 @@ export default {
     // console.log(store)
 
     var loginParams = {
-      student: {
+      teacher: {
         email: username,
         password: password
       }
     }
 
     console.log(username)
-    Vue.$http.post('/students/api_sign_in.json', loginParams)
+    Vue.$http.post('/teachers/api_sign_in.json', loginParams)
     .then(function (response) {
       console.log(response)
       store.dispatch('login')
@@ -25,18 +25,18 @@ export default {
     })
   },
   logout (callback) {
-    console.log(store)
-    Vue.$http.delete('/login')
+    console.log('teacher logout')
+    Vue.$http.delete('/teachers/api_sign_out.json')
     .then(function (response) {
-      // store.dispatch('logout')
-      callback(response.data)
+      store.dispatch('logout')
+      // callback(response.data)
     })
     .catch(function (response) {
-      // store.dispatch('logout')
+      store.dispatch('logout')
     })
   },
   checkLoggedIn () {
-    Vue.$http.get('/students/check_signed_in')
+    Vue.$http.get('/teachers/check_signed_in')
     .then(function (response) {
       // store.dispatch('login')
     })

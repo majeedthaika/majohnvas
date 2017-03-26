@@ -18,12 +18,12 @@ const mutations = {
   login (state) {
     console.log('mutations login')
     state.auth = true
-    router.push({ name: 'Dashboard' })
+    router.push({ name: 'Choose' })
   },
   logout (state) {
     console.log('mutations logout')
     state.auth = false
-    router.push({ name: 'Login' })
+    router.push({ name: 'Choose' })
   }
 }
 

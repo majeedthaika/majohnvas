@@ -1,4 +1,4 @@
-<!-- <template lang="html">
+<template lang="html">
   <div class="phone-viewport">
   <md-toolbar>
     <md-button class="md-icon-button" @click.native="toggleLeftSidenav">
@@ -16,7 +16,7 @@
     <div class="phone-viewport">
       <md-list>
         <md-list-item>
-          <router-link tag="li" to="/dashboard">
+          <router-link tag="li" to="/teachers/dashboard">
             <md-button id='but'>
               <md-icon>dashboard</md-icon> Course
             </md-button>
@@ -35,7 +35,7 @@
 </template>
 
 <script>
-import TeacherUsersApi from '@/api/teacher/users.js'
+import StudentUsersApi from '@/api/student/users.js'
 
 export default {
   data () {
@@ -46,7 +46,7 @@ export default {
   methods: {
     logout () {
       console.log('out')
-      TeacherUsersApi.logout()
+      StudentUsersApi.logout()
     },
     toggleLeftSidenav () {
       this.$refs.leftSidenav.toggle()
@@ -88,4 +88,4 @@ export default {
   margin-left: 0px;
 }
 
-</style> -->
+</style>

@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
   <div class="posts">
 
     <md-dialog md-open-from="#fab" md-close-to="#fab" ref="dialog2">
@@ -25,7 +25,7 @@
 
     <md-layout md-gutter md-align="center" style="margin-top:20px;">
       <md-list class="custom-list md-triple-line" v-for="course in 5">
-              <!-- Course :{{post.name}}  Status :{{post.active}} -->
+              Course :{{post.name}}  Status :{{post.active}}
         <router-link tag="li" to="/post">
           <md-layout md-flex-xsmall="100" md-flex-small="50" md-flex-medium="33">
             <md-card md-with-hover style="width:325px;">
@@ -66,3 +66,5 @@ export default {
   }
 }
 </script>
+
+ -->

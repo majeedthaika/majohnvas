@@ -11,7 +11,7 @@
           <form>
             <md-input-container>
               <label>Course code</label>
-              <md-textarea maxlength="15"></md-textarea>
+              <md-textarea maxlength="5"></md-textarea>
             </md-input-container>
           </form>
         </md-dialog-content>
@@ -27,18 +27,22 @@
       </md-button>
 
       <md-layout md-gutter md-align="center" style="margin-top:20px;">
-        <md-list class="custom-list md-triple-line" v-for="course in 5">
-                <!-- Course :{{post.name}}  Status :{{post.active}} -->
-          <router-link tag="li" to="/students/post">
+        <md-list class="custom-list md-triple-line" v-for="course in courses">
+          <router-link tag="li" :to="{ name: 'StudentPost', params: {coursecode: course.course_code } }">
             <md-layout md-flex-xsmall="100" md-flex-small="50" md-flex-medium="33">
               <md-card md-with-hover style="width:325px;">
                 <md-card-header>
-                  <div class="md-title">Course title</div>
-                  <div class="md-subhead">Course owner</div>
+                  <div class="md-headline">{{course.name}}</div>
                 </md-card-header>
 
                 <md-card-content>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+                  <span class="md-body-2">Code: {{course.course_code}}</span>
+                  <div>
+                    <span class="md-sub-heading">Created: {{strDate(course.created_at)}}</span>
+                  </div>
+                  <div>
+                    <span class="md-sub-heading">Updated: {{strDate(course.updated_at)}}</span>
+                  </div>
                 </md-card-content>
               </md-card>
             </md-layout>
@@ -51,17 +55,44 @@
 
 <script>
 import State from '@/store'
+import StudentCoursesApi from '@/api/student/courses.js'
 // import StudentUsersApi from '@/api/student/users.js'
 
 export default {
   components: {
     StudentSidenav: require('@/components/student/Sidenav')
   },
+  mounted: function () {
+    this.getJoinedCourse()
+    this.strDate()
+  },
+  data () {
+    return {
+      courseCode: '',
+      courses: ''
+    }
+  },
   methods: {
+    getJoinedCourse () {
+      StudentCoursesApi.getCourse(_posts => {
+        console.log(_posts)
+        this.courses = _posts
+      })
+    },
+    getPost () {
+      // StudentCoursesApi.
+    },
     openDialog (ref) {
       this.$refs[ref].open()
     },
     closeDialog (ref) {
+      this.$refs[ref].close()
+    },
+    join (ref, courseCode) {
+      console.log(courseCode)
+      StudentCoursesApi.joinCourse(courseCode, newCourse => {
+        this.courses.push(newCourse)
+      })
       this.$refs[ref].close()
     },
     onOpen () {
@@ -75,21 +106,14 @@ export default {
     },
     checkLoggedIn () {
       return State.state.auth
-      // if (State.state.auth) {
-      //   return true
-      // }
       // StudentUsersApi.studentLoggedIn(function (_response) {
       //   return (State.state.auth && _response.success)
       // })
+    },
+    strDate (date) {
+      var str = new Date(date).toString()
+      return str.substring(0, str.length - 14)
     }
-    // sth () {
-    //   console.log('sth')
-    //   StudentUsersApi.studentLoggedIn(function (_response) {
-    //     // console.log(_response.success)
-    //     // console.log(State.state.auth)
-    //     console.log(State.state.auth && _response.success)
-    //   })
-    // }
   }
 }
 </script>

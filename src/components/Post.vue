@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
   <div class="posts">
 
     <md-dialog md-open-from="#fab" md-close-to="#fab" ref="dialog2">
@@ -29,18 +29,16 @@
 
     <md-layout md-gutter md-align="center" style="margin-top:20px;">
 
-      <md-list class="custom-list md-triple-line" v-for="post in 7">
-              <!-- Course :{{course.name}}  Status :{{course.active}} -->
+      <md-list class="custom-list md-triple-line" v-for="post in posts">
         <router-link tag="li" to="/show">
           <md-layout md-flex-xsmall="100" md-flex-small="50" md-flex-medium="33">
             <md-card md-with-hover style="width:325px;">
               <md-card-header>
-                <div class="md-title">Post title</div>
-                <div class="md-subhead">Post owner</div>
+                <div class="md-title">{{post.title}}</div>
               </md-card-header>
 
               <md-card-content>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+                {{post.content}}
               </md-card-content>
             </md-card>
           </md-layout>
@@ -52,7 +50,19 @@
 
 <script>
 export default {
+  name: 'post',
+  data () {
+    return {
+      posts: []
+    }
+  },
+  created () {
+    this.fetchData()
+  },
   methods: {
+    fetchData () {
+
+    },
     openDialog (ref) {
       this.$refs[ref].open()
     },
@@ -70,4 +80,4 @@ export default {
     }
   }
 }
-</script>
+</script> -->

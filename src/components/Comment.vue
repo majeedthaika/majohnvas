@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
   <div class="comment">
     <md-dialog md-open-from="#fab" md-close-to="#fab" ref="dialog2">
       <md-dialog-title>Create comment</md-dialog-title>
@@ -22,7 +22,6 @@
       <md-icon>add</md-icon>
     </md-button>
     <md-list class="custom-list md-triple-line" v-for="comment in 4">
-            <!-- Course :{{course.name}}  Status :{{course.active}} -->
       <div v-if="comment%2 == 0">
           <md-layout md-align="center" style="margin-top:10px;">
               <md-layout md-flex="30" md-align="end">
@@ -84,4 +83,4 @@ export default {
 </script>
 
 <style>
-</style>
+</style> -->

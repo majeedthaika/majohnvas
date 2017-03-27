@@ -34,7 +34,7 @@
           <router-link to="/comment">
             <md-button class="md-accent">Back</md-button>
           </router-link>
-          <md-button class="md-accent md-raised" id="fab" @click.native="openDialog('dialog2')">Edit</md-button>
+          <md-button class="md-accent md-raised" id="fab" @click.native="openDialog('dialog2')" disabled>Edit</md-button>
         </md-card-actions>
       </md-card>
     </md-layout>

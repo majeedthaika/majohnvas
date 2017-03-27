@@ -1,11 +1,14 @@
 <template>
   <md-layout md-align="center">
-    <md-layout md-flex="35" md-align="center" style="margin-top:120px;">
+    <md-layout md-flex="25" md-align="center" style="margin-top:150px;">
       <span class="md-display-1">Choose your role</span>
       <!-- <md-layout md-align="center" style="margin-top:20px;"> -->
       <div style="margin-top:20px;">
         <md-button class="md-raised md-primary" @click.native='teacher'>Teacher</md-button>
         <md-button class="md-raised md-primary" @click.native='student'>Student</md-button>
+      </div>
+      <div class="margin-top:40px;">
+        <md-button class="md-primary" style="margin-top:20px;" @click.native="openDialog('dialog2')">Register</md-button>
       </div>
       <div style="margin-top:20px;">
         <md-dialog md-open-from="#fab" md-close-to="#fab" ref="dialog2">
@@ -18,13 +21,8 @@
             </form>
           </md-dialog-content>
 
-          <!-- <md-dialog-actions>
-            <md-button class="md-primary" @click.native="closeDialog('dialog2')">Cancel</md-button>
-            <md-button class="md-primary" @click.native="closeDialog('dialog2')">Confirm</md-button>
-          </md-dialog-actions> -->
         </md-dialog>
 
-        <md-button class="md-primary" style="margin-top:20px;" @click.native="openDialog('dialog2')">Register</md-button>
       </div>
     </md-layout>
   </md-layout>
@@ -62,7 +60,6 @@ export default {
       console.log('Closed', type)
     }
   }
-
 }
 </script>
 

@@ -13,8 +13,11 @@ import StudentLogin from '@/components/student/Login'
 import StudentSidenav from '@/components/student/Sidenav'
 import StudentDashboard from '@/components/student/Dashboard'
 import StudentPost from '@/components/student/Post'
+import StudentComment from '@/components/student/Comment'
 import TeacherLogin from '@/components/teacher/Login'
 import TeacherDashboard from '@/components/teacher/Dashboard'
+import TeacherPost from '@/components/teacher/Post'
+import TeacherComment from '@/components/teacher/Comment'
 
 Vue.use(Router)
 
@@ -51,9 +54,14 @@ export default new Router({
       component: StudentDashboard
     },
     {
-      path: '/students/post',
+      path: '/students/post/:coursecode',
       name: 'StudentPost',
       component: StudentPost
+    },
+    {
+      path: '/students/post/comment/:coursecode?:pid',
+      name: 'StudentComment',
+      component: StudentComment
     },
     {
       path: '/teachers/login',
@@ -64,6 +72,16 @@ export default new Router({
       path: '/teachers/dashboard',
       name: 'TeacherDashboard',
       component: TeacherDashboard
+    },
+    {
+      path: '/teachers/post/:coursecode',
+      name: 'TeacherPost',
+      component: TeacherPost
+    },
+    {
+      path: '/teachers/post/comment/:coursecode?:pid',
+      name: 'TeacherComment',
+      component: TeacherComment
     },
     {
       path: '/post',

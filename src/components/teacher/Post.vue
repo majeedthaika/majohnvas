@@ -32,7 +32,7 @@
       <md-layout md-gutter md-align="center" style="margin-top:20px;">
 
         <md-list class="custom-list md-triple-line" v-for="post in posts">
-          <router-link tag="li" :to="{ name: 'StudentComment', params: {coursecode: post.course_code, pid: post.id} }">
+          <router-link tag="li" :to="{ name: 'TeacherComment', params: {coursecode: post.course_code, pid: post.id} }">
             <md-layout md-flex-xsmall="100" md-flex-small="50" md-flex-medium="33">
               <md-card md-with-hover style="width:325px;">
                 <md-card-header>
@@ -63,7 +63,7 @@
 
 <script>
 import State from '@/store'
-import StudentPostsApi from '@/api/student/posts.js'
+import TeacherPostsApi from '@/api/teacher/posts.js'
 
 export default {
   data () {
@@ -75,18 +75,16 @@ export default {
     }
   },
   mounted: function () {
-    this.curCourseCode = this.getCourseCode()
-    // console.log(this.curCourseCode)
     this.fetchData()
   },
   components: {
-    StudentSidenav: require('@/components/student/Sidenav')
+    StudentSidenav: require('@/components/teacher/Sidenav')
   },
   methods: {
     fetchData () {
       var str = document.URL.toString()
       var courseCode = str.substr(str.length - 5)
-      StudentPostsApi.getPost(courseCode, _post => {
+      TeacherPostsApi.getPost(courseCode, _post => {
         console.log(_post)
         this.posts = _post
       })
@@ -100,7 +98,7 @@ export default {
     addPost (ref, title, content) {
       var str = document.URL.toString()
       var courseCode = str.substr(str.length - 5)
-      StudentPostsApi.createPost(courseCode, title, content, newPost => {
+      TeacherPostsApi.createPost(courseCode, title, content, newPost => {
         this.posts.push(newPost)
       })
       this.$refs[ref].close()
@@ -116,11 +114,6 @@ export default {
     },
     checkLoggedIn () {
       return State.state.auth
-    },
-    getCourseCode () {
-      var str = document.URL.toString()
-      var courseCode = str.substr(str.length - 5)
-      return courseCode
     }
   }
 }

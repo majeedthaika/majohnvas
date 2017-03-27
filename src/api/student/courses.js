@@ -5,7 +5,7 @@ export default{
     var loginParams = {
       course_code: courseCode
     }
-    console.log(courseCode)
+    console.log('joincourse', courseCode)
     Vue.$http.post('/courses/join.json', loginParams)
     .then(function (response) {
       console.log(response)

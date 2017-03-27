@@ -11,14 +11,14 @@
           <form>
             <md-input-container>
               <label>Course code</label>
-              <md-textarea maxlength="5"></md-textarea>
+              <md-textarea maxlength="5" v-model="courseCode"></md-textarea>
             </md-input-container>
           </form>
         </md-dialog-content>
 
         <md-dialog-actions>
           <md-button class="md-primary" @click.native="closeDialog('dialog2')">Cancel</md-button>
-          <md-button class="md-primary" @click.native="closeDialog('dialog2')">Confirm</md-button>
+          <md-button class="md-primary" @click.native="join('dialog2',courseCode)">Confirm</md-button>
         </md-dialog-actions>
       </md-dialog>
 
@@ -75,12 +75,9 @@ export default {
   methods: {
     getJoinedCourse () {
       StudentCoursesApi.getCourse(_posts => {
-        console.log(_posts)
+        console.log('posts', _posts)
         this.courses = _posts
       })
-    },
-    getPost () {
-      // StudentCoursesApi.
     },
     openDialog (ref) {
       this.$refs[ref].open()

@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
   <div class="post">
     <md-layout md-gutter md-align="center" style="margin-top:150px;">
       <md-card md-align="center" style="width:600px;">
@@ -38,7 +38,7 @@
           <router-link to="/comment">
             <md-button class="md-accent">View comment</md-button>
           </router-link>
-          <md-button class="md-accent md-raised" id="fab" @click.native="openDialog('dialog2')">Edit</md-button>
+          <md-button class="md-accent md-raised" id="fab" disabled>Edit</md-button>
         </md-card-actions>
       </md-card>
     </md-layout>
@@ -69,4 +69,4 @@ export default {
 
 <style>
 
-</style>
+</style> -->

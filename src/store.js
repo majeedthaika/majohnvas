@@ -8,7 +8,8 @@ Vue.use(Vuex)
 const state = {
   auth: false,
   username: null,
-  password: null
+  password: null,
+  curCourseCode: null
 
 }
 

@@ -2,35 +2,27 @@
   <div id="register">
     <span class="md-display-1">Register: Teacher</span>
     <form novalidate @submit.stop.prevent="submit">
+
       <md-input-container>
-        <label>Initial value</label>
-        <md-input v-model="initialValue"></md-input>
+        <label>Firstname</label>
+        <md-input v-model="firstname"></md-input>
       </md-input-container>
 
       <md-input-container>
-        <label>With label</label>
-        <md-input placeholder="My nice placeholder"></md-input>
-      </md-input-container>
-
-      <md-input-container md-inline>
-        <label>Inline field</label>
-        <md-input></md-input>
+        <label>Lastname</label>
+        <md-input v-model="lastname"></md-input>
       </md-input-container>
 
       <md-input-container>
-        <label>Number</label>
-        <md-input type="number"></md-input>
+        <label>Email</label>
+        <md-textarea v-model="email"></md-textarea>
       </md-input-container>
 
-      <md-input-container>
-        <label>Textarea</label>
-        <md-textarea></md-textarea>
+      <md-input-container md-has-password>
+        <label>Password</label>
+        <md-input type="password" v-model="password"></md-input>
       </md-input-container>
 
-      <md-input-container>
-        <label>Disabled</label>
-        <md-input disabled></md-input>
-      </md-input-container>
       <md-button class="md-primary md-raised" @click.native="submit">Submit</md-button>
     </form>
   </div>
@@ -38,15 +30,23 @@
 
 <script>
 import router from '@/router'
+import TeacherUsersApi from '@/api/teacher/users.js'
+
 export default {
   data () {
     return {
-      initialValue: 'My initial value'
+      firstname: '',
+      lastname: '',
+      email: '',
+      password: ''
     }
   },
   methods: {
     submit () {
-      router.push({ name: 'Choose' })
+      console.log('teacher register')
+      TeacherUsersApi.create(this.firstname, this.lastname, this.email, this.password, function (_response) {
+        router.push({ name: 'Choose' })
+      })
     }
   }
 }
@@ -54,6 +54,7 @@ export default {
 
 <style>
   #register {
+    margin-top: 40px;
     padding: 40px;
   }
 </style>

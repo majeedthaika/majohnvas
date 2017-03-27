@@ -4,19 +4,16 @@ import store from '../store'
 
 export default {
   login (username, password, callback) {
-    // console.log(store)
-
     var loginParams = {
       student: {
         email: username,
         password: password
       }
     }
-
-    console.log(username)
     Vue.$http.post('/students/api_sign_in.json', loginParams)
     .then(function (response) {
       console.log(response)
+      // store.state.auth = true
       store.dispatch('login')
       callback(response.data)
     })

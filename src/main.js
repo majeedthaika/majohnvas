@@ -15,7 +15,7 @@ Vue.$http = Axios
 Vue.config.productionTip = false
 
 // URL
-Axios.defaults.baseURL = 'http://localhost:3000/'
+Axios.defaults.baseURL = 'https://majohnvas-backend.herokuapp.com/'
 Axios.defaults.headers.common.Accept = 'application/json'
 Axios.defaults.withCredentials = true
 Vue.config.productionTip = false

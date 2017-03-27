@@ -4,8 +4,6 @@ import store from '@/store'
 
 export default {
   login (username, password, callback) {
-    // console.log(store)
-
     var loginParams = {
       teacher: {
         email: username,
@@ -35,10 +33,32 @@ export default {
       store.dispatch('logout')
     })
   },
-  checkLoggedIn () {
+  teacherLoggedIn (callback) {
     Vue.$http.get('/teachers/check_signed_in')
     .then(function (response) {
+      callback(response.data)
       // store.dispatch('login')
+    })
+    .catch(function (response) {
+      // store.dispatch('logout')
+    })
+  },
+  create (firstname, lastname, email, password, callback) {
+    var loginParams = {
+      teacher: {
+        email: email,
+        password: password,
+        first_name: firstname,
+        last_name: lastname
+      }
+    }
+
+    console.log('teacher', loginParams)
+    Vue.$http.post('/teachers.json', loginParams)
+    .then(function (response) {
+      console.log(response)
+      // store.dispatch('login')
+      callback(response.data)
     })
     .catch(function (response) {
       // store.dispatch('logout')

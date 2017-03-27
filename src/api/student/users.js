@@ -42,5 +42,26 @@ export default {
     .catch(function (response) {
       // store.dispatch('logout')
     })
+  },
+  create (firstname, lastname, email, password, callback) {
+    var loginParams = {
+      student: {
+        email: email,
+        password: password,
+        first_name: firstname,
+        last_name: lastname
+      }
+    }
+
+    console.log(loginParams)
+    Vue.$http.post('/students.json', loginParams)
+    .then(function (response) {
+      console.log(response)
+      // store.dispatch('login')
+      callback(response.data)
+    })
+    .catch(function (response) {
+      // store.dispatch('logout')
+    })
   }
 }
